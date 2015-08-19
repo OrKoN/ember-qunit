@@ -29,5 +29,11 @@
     "ember-cli": "^0.1.12",
     "ember-cli-release": "^0.2.3",
     "git-repo-version": "^0.1.2"
+  },
+  "jspm": {
+    "dependencies": {
+      "ember-test-helpers": "github:OrKoN/ember-test-helpers@master",
+      "qunit": "github:jquery/qunit"
+    }
   }
 }
