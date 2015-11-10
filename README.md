@@ -75,7 +75,7 @@ test('it renders', function(assert) {
     {{ x-foo value=value action="result" }}
   `);
 
-  assert.equal(this.('div>.value').text(), 'cat', 'The component shows the correct value');
+  assert.equal(this.$('div>.value').text(), 'cat', 'The component shows the correct value');
 
   this.$('button').click();
 });
@@ -87,7 +87,7 @@ Integration tests have the advantage of testing your component as Ember would ac
 
 Component integration tests have the following features:
 - Your test context `this` acts as the outer context for the component.  As a result, you can call `this.set` and `this.on` to setup values and event listeners that you can then have interact with the component.
-- You are required to render the component as a template, e.g. `this.render(hbs`{{ your-component-name value=value action="updated" }}`)`.  You can render other components as well as block content.
+- You are required to render the component as a template, e.g. ``this.render(hbs`{{ your-component-name value=value action="updated" }}`)``.  You can render other components as well as block content.
 - All of the normal Ember lifecycle hooks for a component are called (including the new ones from 1.13.x).
 - Testing the component's template is through `this.$()`.
 - You do not require dependencies through `needs:`.  Doing so will force the test into unit mode.
@@ -204,6 +204,7 @@ test('sometimes async gets rejected', function(assert) {
 
 - `callbacks`: (Object) optional
    - QUnit callbacks (`beforeEach` and `afterEach`)
+   - `integration: true` or `unit: true` (default: `integration: true`)
    - `needs` specify any dependencies the tested module will require.
 
 ### `moduleForComponent(name, [description, callbacks])`
@@ -215,7 +216,7 @@ test('sometimes async gets rejected', function(assert) {
 
 - `callbacks`: (Object) optional
    - QUnit callbacks (`beforeEach` and `afterEach`)
-   - `integration: true` or `unit: true` (default)
+   - `integration: true` or `unit: true` (default: `integration: true`)
    - `needs` specify any dependencies the tested module will require.  (Includig this will force your test into unit mode).
 
 
@@ -228,6 +229,7 @@ test('sometimes async gets rejected', function(assert) {
 
 - `callbacks`: (Object) optional
    - QUnit callbacks (`beforeEach` and `afterEach`)
+   - `integration: true` or `unit: true` (default: `integration: true`)
    - `needs` specify any dependencies the tested module will require.
 
 ## Contributing
@@ -259,4 +261,4 @@ $ npm test
 
 ## Copyright and License
 
-Copyright 2014 Ryan Florence and contributors. [MIT License](./LICENSE).
+Copyright 2015 Ryan Florence and contributors. [MIT License](./LICENSE).
